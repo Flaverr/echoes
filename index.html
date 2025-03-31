@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault of Echoes: Seed Sprint</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="intro-screen">
+    <img id="intro-bg" src="assets/intro.jpg" alt="Intro Background" />
+    <div id="intro-ui">
+      <div id="game-logo">Vault of Echoes</div>
+      <span>Break Free. Burn Debt. Boost Together.</span>
+      <input id="username" type="text" placeholder="Enter your Vault ID" />
+      <button id="start-btn">Enter Vault</button>
+      <div id="leaderboard">
+        <h2>Top Vault Runners</h2>
+        <ul id="leaderboard-list"></ul>
+      </div>
+      <div id="legend">
+        <h2>Game Legend</h2>
+        <ul>
+          <li><strong>⚡ Collateral Boost (Shift):</strong> Neon burst for speed</li>
+          <li><strong>🟢 Network Orbs:</strong> Fuel your Proof-of-Repayment</li>
+          <li><strong>🔗 Debt Fragments:</strong> Collect to convert</li>
+          <li><strong>🔥 Burn Altars:</strong> Cleanse debt into 🌱 Repayment Seeds</li>
+          <li><strong>🌟 Seed Burst (B):</strong> Vaporize obstacles with seed force</li>
+          <li><strong>🛡️ Shield:</strong> Auto-protects from one hit</li>
+          <li><strong>Vault Phases:</strong> Dynamic challenge scaling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="1920" height="1080"></canvas>
+    <div id="ui">
+      <div id="boosts">⚡ Boosts: Ready</div>
+      <div id="orbs">🟢 Network Orbs: 0</div>
+      <div id="freedomSeeds">🌱 Repayment Seeds: 0</div>
+    </div>
+  </div>
+  <div id="phase-banner"></div>
+  <div id="fall-banner">You Fell!</div>
+  <div id="end-screen">
+    <div id="end-summary">
+      <h2>Vault Summary</h2>
+      <ul id="summary-list"></ul>
+      <button id="restart-btn">Play Again</button>
+      <button id="tweet-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#0ff" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.5 3H17.85L13.6 10.05L8.4 3H1.5L10.65 15.45L1.5 21H6.15L10.8 13.65L16.05 21H22.95L13.8 8.4L22.5 3Z"/>
+        </svg>
+        Share on X
+      </button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
