@@ -1,1 +1,60 @@
-/* Placeholder for style.css - full styling needed */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+  background-color: #000;
+  overflow: hidden;
+  color: #0ff;
+}
+
+#intro-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#intro-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+#intro-ui {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border: 2px solid #0ff;
+  border-radius: 20px;
+  box-shadow: 0 0 40px #0ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+}
+
+#game-container {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #010b15 0%, #000 100%);
+}
