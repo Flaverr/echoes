@@ -1,4 +1,6 @@
 
+document.addEventListener("DOMContentLoaded", () => {
+
 const startBtn = document.getElementById("start-btn");
 const usernameInput = document.getElementById("username");
 const introScreen = document.getElementById("intro-screen");
@@ -245,3 +247,5 @@ function endGame() {
   setTimeout(() => alert("You fell! Final score: " + score), 300);
   setTimeout(() => location.reload(), 1500);
 }
+
+});
