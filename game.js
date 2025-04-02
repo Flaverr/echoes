@@ -13,7 +13,6 @@ startBtn.addEventListener("click", () => {
   if (username === "") return;
   introScreen.style.display = "none";
   gameContainer.style.display = "block";
-  canvas.focus();
   startGame();
 });
 
