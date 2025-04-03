@@ -95,6 +95,7 @@ function startGame() {
   };
 
   requestAnimationFrame(gameLoop);
+  } catch (e) { console.error("Game crashed:", e); }
 }
 
 window.addEventListener("keydown", e => {
@@ -125,6 +126,7 @@ function drawParallax() {
 }
 
 function gameLoop() {
+  try {
   frameCount++;
   if (!gameRunning) return;
   drawParallax();
@@ -166,7 +168,7 @@ function gameLoop() {
   ctx.drawImage(playerImg, player.x + leanOffset, player.y + bobOffset, player.width, player.height);
   ctx.restore();
 
-  if (Math.random() < 0.03) {
+  if (Math.random() < 0.02) {
     orbs.push({ x: canvas.width + 30, y: groundY - 100 - Math.random() * 200, r: 24 });
   }
 
@@ -186,7 +188,7 @@ function gameLoop() {
     }
   }
 
-  if (frameCount > 300 && Math.random() < 0.01) {
+  if (frameCount > 300 && Math.random() < 0.015) {
     spikes.push({ x: canvas.width + 30, y: groundY - 60, w: 60, h: 60 });
   }
 
@@ -229,6 +231,7 @@ function gameLoop() {
   ctx.fillText("Vault Phase: " + currentPhase, 30, 100);
 
   requestAnimationFrame(gameLoop);
+  } catch (e) { console.error("Game crashed:", e); }
 }
 
 function endGame() {
