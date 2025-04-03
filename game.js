@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ DOM fully loaded");
   const startBtn = document.getElementById("start-btn");
   const usernameInput = document.getElementById("username");
   const introScreen = document.getElementById("intro-screen");
@@ -7,30 +6,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("gameCanvas");
   const ctx = canvas.getContext("2d");
 
+  let username = "";
+  let running = false;
+  let y = 800, vy = 0, gravity = 1.5;
+  let score = 0;
+
   startBtn.addEventListener("click", () => {
-    console.log("🟢 Start button clicked");
-    const username = usernameInput.value.trim();
-    if (username === "") return;
+    username = usernameInput.value.trim();
+    if (!username) return;
     introScreen.style.display = "none";
     gameContainer.style.display = "block";
-    console.log("🚀 startGame() called");
-    startGame();
+    running = true;
+    gameLoop();
   });
 
-  function startGame() {
+  function gameLoop() {
+    if (!running) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    vy += gravity;
+    y += vy;
+
+    if (y > 960) {
+      y = 960;
+      vy = 0;
+    }
+
+    ctx.fillStyle = "#0ff";
+    ctx.fillRect(100, y, 60, 80);
+    ctx.fillText("Vault ID: " + username, 30, 40);
+    ctx.fillText("Score: " + score, 30, 70);
+
     requestAnimationFrame(gameLoop);
   }
 
-  function gameLoop() {
-    try {
-      console.log("🌀 Frame running");
-      requestAnimationFrame(gameLoop);
-    } catch (e) {
-      console.error("🔥 Crash in gameLoop:", e);
+  window.addEventListener("keydown", e => {
+    if (e.code === "Space" && y >= 960) {
+      vy = -25;
     }
-  }
-
-  function endGame() {
-    console.log("💀 endGame() triggered");
-  }
+  });
 });
