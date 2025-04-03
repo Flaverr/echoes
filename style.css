@@ -1,4 +1,6 @@
 body, html {
+  font-family: 'Raleway', sans-serif;
+
   margin: 0;
   padding: 0;
   width: 100%;
@@ -59,6 +61,8 @@ body, html {
 }
 
 #start-btn {
+  transition: all 0.3s ease;
+
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   color: #0ff;

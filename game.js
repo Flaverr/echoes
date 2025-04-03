@@ -8,6 +8,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 let gameRunning = false;
+let frameCount = 0;
 let username = "";
 let player, groundY, score, orbs, spikes, trail, boostActive, boostTimer, keys = {};
 let currentPhase = 1;
@@ -120,10 +121,11 @@ function drawParallax() {
   if (x3 <= -1920) x3 = 0;
   ctx.drawImage(layer1, x1, 0); ctx.drawImage(layer1, x1 + 1920, 0);
   ctx.drawImage(layer2, x2, 0); ctx.drawImage(layer2, x2 + 1920, 0);
-  ctx.drawImage(layer3, x3, 0); ctx.drawImage(layer3, x3 + 1920, 0);
+  ctx.drawImage(layer3, 0, 0); // foreground layer fixed
 }
 
 function gameLoop() {
+  frameCount++;
   if (!gameRunning) return;
   drawParallax();
   player.vy += player.gravity;
@@ -156,14 +158,15 @@ function gameLoop() {
 
   player.bob += 0.2;
   const bobOffset = Math.sin(player.bob) * 2;
+  const leanOffset = Math.sin(player.bob * 2) * 4;
 
   ctx.save();
   ctx.shadowColor = "#0ff";
   ctx.shadowBlur = boostActive ? 30 : 10;
-  ctx.drawImage(playerImg, player.x, player.y + bobOffset, player.width, player.height);
+  ctx.drawImage(playerImg, player.x + leanOffset, player.y + bobOffset, player.width, player.height);
   ctx.restore();
 
-  if (Math.random() < 0.02) {
+  if (Math.random() < 0.03) {
     orbs.push({ x: canvas.width + 30, y: groundY - 100 - Math.random() * 200, r: 24 });
   }
 
@@ -183,7 +186,7 @@ function gameLoop() {
     }
   }
 
-  if (Math.random() < 0.015) {
+  if (frameCount > 300 && Math.random() < 0.01) {
     spikes.push({ x: canvas.width + 30, y: groundY - 60, w: 60, h: 60 });
   }
 
