@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ DOM fully loaded");
 const startBtn = document.getElementById("start-btn");
 const usernameInput = document.getElementById("username");
 const introScreen = document.getElementById("intro-screen");
@@ -63,10 +64,12 @@ function showPhaseBanner(phase) {
 }
 
 startBtn.addEventListener("click", () => {
+  console.log("🟢 Start button clicked");
   username = usernameInput.value.trim();
   if (username === "") return;
   introScreen.style.display = "none";
   gameContainer.style.display = "block";
+  console.log("🚀 Starting game...");
   startGame();
 });
 
