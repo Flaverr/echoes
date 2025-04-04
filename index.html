@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vault of Echoes</title>
+  <title>Vault of Echoes: Seed Sprint</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -11,9 +10,20 @@
   <div id="intro-screen">
     <input id="username" type="text" placeholder="Enter your Vault ID" />
     <button id="start-btn">Enter Vault</button>
+    <div id="legend">
+      <h3>🎮 How to Play</h3>
+      <p>🕹️ <b>Jump:</b> Press <code>Space</code> (double jump supported)</p>
+      <p>🚀 <b>Boost:</b> Hold <code>Shift</code> to activate trail boost</p>
+      <p>🟢 Collect Orbs = +10 pts</p>
+      <p>💙 Hearts = Extra Lives (Max 3)</p>
+      <p>🛡️ Shield = Invincible 5s</p>
+      <p>🐢 Slow-mo = Slow motion 5s</p>
+      <p>🔇 / 🔊 Mute or Unmute Sound</p>
+    </div>
   </div>
-  <div id="game-container" style="display:none">
+  <div id="game-container" style="display: none;">
     <canvas id="gameCanvas" width="1920" height="1080"></canvas>
+    <button id="mute-btn">🔊</button>
   </div>
   <script src="game.js"></script>
 </body>
