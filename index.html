@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Vault of Echoes</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vault of Echoes: Seed Sprint</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="intro-screen">
-    <input id="username" type="text" placeholder="Enter your Vault ID" />
+  <div id="intro">
+    <h1>🏃‍♂️ Vault of Echoes: Seed Sprint</h1>
+    <input type="text" id="username" placeholder="Enter Vault ID" maxlength="12">
     <button id="start-btn">Enter Vault</button>
     <div id="legend">
-      <h3>🎮 How to Play</h3>
-      <p>🕹️ <b>Jump:</b> Press <code>Space</code> (double jump supported)</p>
-      <p>🚀 <b>Boost:</b> Hold <code>Shift</code> to activate trail boost</p>
-      <p>🟢 Orbs = +10 pts</p>
-      <p>💙 Hearts = Lives (Max 3)</p>
-      <p>🛡️ Shield = Invincible 5s (Supercollateral)</p>
-      <p>🐢 Slow-mo = Slow 5s (CDP Protocol)</p>
-      <p>🔇 / 🔊 Mute or Unmute</p>
+      <p>🕹️ Space = Jump</p>
+      <p>🚀 Shift = Boost</p>
+      <p>🛡️ = Shield power</p>
+      <p>🐢 = Slow-mo</p>
+      <p>💙 = Extra life</p>
+      <p>🔇 / 🔊 = Toggle sound</p>
     </div>
   </div>
-  <div id="game-container" style="display:none;">
-    <canvas id="gameCanvas" width="1920" height="1080"></canvas>
+  <div id="game-container">
     <button id="mute-btn">🔊</button>
+    <canvas id="gameCanvas" width="1920" height="1080"></canvas>
   </div>
   <script src="game.js"></script>
 </body>

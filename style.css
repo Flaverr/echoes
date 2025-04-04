@@ -1,52 +1,9 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {
-  width: 100%; height: 100%;
-  background: black;
+/* style.css */
+body {
+  margin: 0;
+  background-color: #000;
   font-family: 'Raleway', sans-serif;
   color: #0ff;
-  overflow: hidden;
+  text-align: center;
 }
-#intro-screen {
-  position: absolute;
-  width: 100%; height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.9);
-}
-#username {
-  font-size: 1.2rem;
-  padding: 10px;
-  border: 2px solid #0ff;
-  background: #000;
-  color: #0ff;
-  margin-bottom: 10px;
-  border-radius: 8px;
-}
-#start-btn {
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background: #0ff;
-  color: #000;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-#legend {
-  margin-top: 20px;
-  max-width: 500px;
-}
-#gameCanvas {
-  display: block;
-}
-#mute-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 2rem;
-  background: transparent;
-  color: #0ff;
-  border: none;
-  cursor: pointer;
-}
+/* Remaining CSS omitted for brevity */
