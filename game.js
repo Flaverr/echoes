@@ -10,9 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let username = "";
   let player, score, orbs, spikes, trail, boostActive, boostTimer, jumpCount, gameRunning;
   let currentPhase = 1;
+
   const bg1 = new Image(); bg1.src = "assets/bg/layer1_background.png";
   const bg2 = new Image(); bg2.src = "assets/bg/layer2_midground.png";
   const bg3 = new Image(); bg3.src = "assets/bg/layer3_foreground.png";
+
   let x1 = 0, x2 = 0;
 
   let nextPhaseScore = 500;
@@ -66,16 +68,30 @@ document.addEventListener("DOMContentLoaded", () => {
   function gameLoop() {
     if (!gameRunning) return;
 
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw parallax background layers
-    x1 -= 0.3;
-    x2 -= 0.6;
-    if (x1 <= -1920) x1 = 0;
-    if (x2 <= -1920) x2 = 0;
-    ctx.drawImage(bg1, x1, 0); ctx.drawImage(bg1, x1 + 1920, 0);
-    ctx.drawImage(bg2, x2, 0); ctx.drawImage(bg2, x2 + 1920, 0);
-    ctx.drawImage(bg3, 0, 0); // static foreground layer
+    // Parallax layers
+    x1 -= 0.2; if (x1 <= -1920) x1 = 0;
+    x2 -= 0.4; if (x2 <= -1920) x2 = 0;
+
+    if (bg1.complete) {
+      ctx.drawImage(bg1, x1, 0); ctx.drawImage(bg1, x1 + 1920, 0);
+    } else {
+      ctx.fillStyle = "#111"; ctx.fillRect(0, 0, 1920, 1080);
+    }
+
+    if (bg2.complete) {
+      ctx.drawImage(bg2, x2, 0); ctx.drawImage(bg2, x2 + 1920, 0);
+    } else {
+      ctx.fillStyle = "#222"; ctx.fillRect(0, 0, 1920, 1080);
+    }
+
+    if (bg3.complete) {
+      ctx.drawImage(bg3, 0, 0);
+    } else {
+      ctx.fillStyle = "#333"; ctx.fillRect(0, 0, 1920, 1080);
+    }
 
 
     player.vy += player.gravity;
